@@ -1,0 +1,49 @@
+
+drop table if exists Users;
+drop table if exists Tasks;
+create table Users(
+
+   UserID INT  Primary key identity  (1,1) ,
+   Name_ nvarchar (100) ,
+  Password_ nvarchar (100),
+  Email nvarchar (100),
+  Role_ nvarchar (100),
+  
+  );
+
+insert into Users(Name_,Password_,Email,Role_)Values
+('youssef','588','youssef@gamil.com','Manger'),
+('yara','5856','yara@gamil.com','Employee'),
+('gamal','741','gamal@gamil.com','Employee'),
+('mazen','852','Mazenf@gamil.com','Manger'),
+('mohmed','963','mohmed@gamil.com','Employee'),
+('ibrahim','666','ibrahim@gamil.com','Manger');
+
+
+create table Tasks(
+  
+   TaskID int Primary key ,
+   Title  nvarchar (100),
+   Description_ nvarchar (100),
+   Status_ nvarchar (100),
+   userid int,
+   Foreign key (Userid) References  Users(UserID),
+
+   );
+
+   
+insert into Tasks(TaskID,Title,Description_,Status_)Values
+(744,'front end','make ui of web','In Progress'),
+(755,'backend','make design','Complete'),
+(101,'developer','write code','Peding'),
+(122,'securtiy','make securtiy','Complete'),
+(828,'IT','solve problems for laptops','Pending'),
+(886,'fullater','make mobile app','In Progress');
+
+select * from Tasks;
+select *from Users;
+
+
+
+
+
